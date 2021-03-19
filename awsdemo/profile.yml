@@ -1,8 +1,8 @@
-name: Revolgy AWS defensive test 
-title: Revolgy AWS defensive test 
+name: Revolgy-AWS-defensive-test 
+title: DevSec Linux Security Baseline
 maintainer: DevSec Hardening Framework Team
-copyright: 2021
-copyright_email: mso@revolgy.com
+copyright: DevSec Hardening Framework Team
+copyright_email: hello@dev-sec.io
 license: Apache-2.0
-summary: Test suite for AWS demo 
+summary: Test suite for best practice Linux OS hardening
 version: 1.0.0
