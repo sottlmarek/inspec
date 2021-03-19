@@ -8,9 +8,9 @@ control 'Revolgy001: Scan Port' do
     end
 end
 
-control 'Revolgy003: Application location' do
+control 'Revolgy002: Application location' do
     impact 0.8
-    title 'Check the binary of the application'
+    title 'Application main is located at app/main.js'
     desc 'Your application must be located in app/main.js'
   describe 'test file' do
     subject { file('/app/main.js') }
@@ -18,4 +18,12 @@ control 'Revolgy003: Application location' do
       expect(subject).to(be_file)
     end
   end
+end
+
+control 'Revolgy003: EC2 name' do
+    impact 0.8
+    title 'Name of the EC2 instance'
+    desc 'EC2 should be named SecTech'
+describe aws_ec2_instance(name: 'SecTech') do
+  it { should exist }
 end
