@@ -8,36 +8,14 @@ control 'Revolgy001: Scan Port' do
     end
 end
 
-control 'Revolgy002: os-02' do
-    impact 3.0
-    title 'Check owner and permissions for /etc/shadow'
-    desc 'Check periodically the owner and permissions for /etc/shadow'
-    describe file('/etc/shadow') do
-      it { should exist }
-      it { should be_file }
-      it { should be_owned_by 'root' }
-      its('group') { should eq shadow_group }
-      it { should_not be_executable }
-      it { should_not be_readable.by('other') }
-    end
-    if os.redhat? || os.name == 'fedora'
-      describe file('/etc/shadow') do
-        it { should_not be_writable.by('owner') }
-        it { should_not be_readable.by('owner') }
-      end
-    else
-      describe file('/etc/shadow') do
-        it { should be_writable.by('owner') }
-        it { should be_readable.by('owner') }
-      end
-    end
-    if os.debian? || os.suse?
-      describe file('/etc/shadow') do
-        it { should be_readable.by('group') }
-      end
-    else
-      describe file('/etc/shadow') do
-        it { should_not be_readable.by('group') }
-      end
+control 'Revolgy003: Application location' do
+    impact 10.0
+    title 'Check the binary of the application'
+    desc 'Your application must be located in app/main.js'
+  describe 'test file' do
+    subject { file('/app/main.js') }
+    it 'should be a file' do
+      expect(subject).to(be_file)
     end
   end
+end
