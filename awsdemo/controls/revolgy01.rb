@@ -1,5 +1,5 @@
 control 'Revolgy001: Scan Port' do
-    impact 10.0
+    impact 0.9
     title 'Server: Configure the service port'
     desc 'Always specify which port the SSH server should listen to.
     Prevent unexpected settings.'
@@ -9,7 +9,7 @@ control 'Revolgy001: Scan Port' do
 end
 
 control 'Revolgy003: Application location' do
-    impact 10.0
+    impact 0.8
     title 'Check the binary of the application'
     desc 'Your application must be located in app/main.js'
   describe 'test file' do
